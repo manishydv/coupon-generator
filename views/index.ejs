@@ -8,6 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <title>Coupon generator</title>
 
@@ -15,59 +16,169 @@
 </head>
 
 <body>
+    <div class="main-wrapper">
+        <main class="form-section">
+            <form id="generateform">
+                <h1 class="h3 mb-3 fw-normal text-center">Get Start Today</h1>
+                <div class="row">
+                    <div class="col-12 mb-2 input-wrap">
+                        <label for="customer_no" class="form-label">Customer No</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control gen-field" name="customer_no" id="customer_no" size="60" maxlength="255" placeholder="eg.402038972" required>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary btn-gen" type="button">generate</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-2 input-wrap">
+                        <label for="order_no" class="form-label">Order No</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control gen-field" name="order_no" id="order_no" size="60" maxlength="255" placeholder="eg.87541112" required>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary  btn-gen" type="button">generate</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mb-2 input-wrap">
+                        <label for="date" class="form-label">Valid Until?</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="date" id="date" placeholder="eg.10/10/2021" required autocomplete="off">
+                        </div>
+                        <input type="hidden" class="form-control" name="valid_date" id="valid_date">
+                    </div>
+                    <div class="col-12 mb-2 input-wrap">
+                        <label for="coupon_code" class="form-label">Coupon code</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control gen-field" name="coupon_code" id="coupon_code" size="60" maxlength="255" placeholder="eg.GS07A024" required>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary btn-gen-code" type="button">generate</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button class="w-100 btn btn-lg btn-primary" type="submit">Generate</button>
+                    </div>
+                </div>
 
-    <section class="large-cta-section skrollable skrollable-between">
-        <div class="medium-large-wrapper skrollable skrollable-after">
-            <div class="medium-text-wrapper">
-                <h2 class="h2 large white">Get started <span class="yellow">today</span>.</h2>
-                <h3 class="h3 white">Generate your coupon within 2 minutes just fill the form.</h3>
-                <div class="contact-wrap">
-                    <form>
-                        <div class="form-group row">
-                            <label for="valid_until_date" class="col-2 col-form-label col-form-label-sm">Valid Until</label>
-                            <div class="col">
-                                <input type="date" class="form-control form-control-sm" name="valid_until_date" placeholder="eg.10/10/2021">
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <label for="valid_until_date" class="col-2 col-form-label col-form-label-sm">Customer No</label>
-                            <input type="text" class="form-control form-control-sm" name="customer_no" placeholder="customer_no" aria-label="customer_no">
-                            <div class="input-group-appen">
-                                <button class="btn btn-sm btn-outline-secondary" type="button">Generate</button>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <label for="valid_until_date" class="col-2 col-form-label col-form-label-sm">Order No</label>
-                            <input type="text" class="form-control form-control-sm" name="order_no" placeholder="order_no" aria-label="order_no">
-                            <div class="input-group-appen">
-                                <button class="btn btn-sm btn-outline-secondary" type="button">Generate</button>
-                            </div>
-                        </div>
-                        <div class="input-group mb-3">
-                            <label for="valid_until_date" class="col-2 col-form-label col-form-label-sm">Coupon Code</label>
-                            <input type="text" class="form-control form-control-sm" name="coupon_code" placeholder="coupon_code" aria-label="coupon_code">
-                            <div class="input-group-appen">
-                                <button class="btn btn-sm btn-outline-secondary" type="button">Generate</button>
-                            </div>
-                        </div>
-                        <button class="btn btn-primary" type="button" id="test">Submit form</button>
-                    </form>
-                    <div class="py-2"></div>
+            </form>
+            <!-- // download -->
+            <div class="container" id="download_section">
+                <h1>Here is your file</h1>
+                <p class="lead text-muted">Just click on download now.</p>
+                <div>
+                    <a id="downloadlink" href="/api/v1/download?filename=9042b1a4-1abf-4e61-ac59-f6da6a53f2a6_file.pdf" class="btn btn-primary my-2">Download Now</a>
                 </div>
             </div>
-        </div>
-        <img src="/images/cta-purple-email.png" class="cta-purple-email skrollable skrollable-after" alt="email illustration">
-        <img src="/images/cta-left-line.svg" class="cta-left-line" alt="graphic line element">
-        <img src="/images/cta-blue-email.png" class="cta-blue-email skrollable skrollable-between" alt="email illustration">
-    </section>
 
+
+        </main>
+    </div>
+    <!-- <div class="container">
+        <img src="/images/translated.jpg" alt="x">
+    </div> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 </body>
 
 <script>
+    $(document).ready(function() {
+        function generateRandomNumber(n) {
+            return Math.floor(Math.random() * (9 * Math.pow(10, n - 1))) + Math.pow(10, n - 1);
+        }
+
+        function generateCouponCode(length) {
+            var result = 'GS7';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            var charactersLength = characters.length;
+            for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            return result;
+        }
+
+
+        $("#date").datepicker({
+            minDate: 0,
+        }).on('change', function(ev, value) {
+            var temp = new Date($("#date").datepicker("getDate")).toISOString();
+            $("#valid_date").val(temp);
+        });
+
+        // validation
+        $("#generateform").validate({
+            errorPlacement: function(error, element) {
+                $(element).closest(".input-wrap").append(error);
+            },
+            errorElement: "div",
+            rules: {
+                customer_no: {
+                    required: true,
+                    minlength: 8,
+                    maxlength: 8
+                },
+                order_no: {
+                    required: true,
+                    minlength: 8,
+                    maxlength: 8
+                },
+                date: {
+                    required: true,
+                    date: true,
+                },
+                coupon_code: {
+                    required: true,
+                    minlength: 8,
+                    maxlength: 8
+                },
+            },
+        });
+
+        $('.btn-gen').click(function() {
+            var temp = generateRandomNumber(8);
+            $(this).closest('.input-group').find('input.gen-field').val(temp);
+            $(this).closest('.input-group').find('input.gen-field').focusout();
+        });
+
+        $('.btn-gen-code').click(function() {
+            var temp = generateCouponCode(5);
+            $(this).closest('.input-group').find('input.gen-field').val(temp);
+            $(this).closest('.input-group').find('input.gen-field').focusout();
+        });
+
+        $("#generateform").submit(function(e) {
+            e.preventDefault();
+            console.log("from submitted");
+            if ($("#generateform").valid()) {
+                var form = $(this).serialize();
+                $.ajax({
+                    url: "/api/v1/generatepdf",
+                    data: form,
+                    method: "POST",
+                    success: function(res) {
+                        if (res.status == 200) {
+                            $("#downloadlink").attr('href', '/api/v1/download?filename=' + res.file);
+                            $("#generateform").hide();
+                            $("#download_section").show();
+                        } else {
+                            alert(res.msg);
+                        }
+                    },
+                    error: function(err) {
+                        console.log('Something went wrong');
+                    },
+                });
+            } else {
+                return false;
+            }
+        });
+
+    });
 </script>
 
 </html>
