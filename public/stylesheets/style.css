@@ -34,3 +34,53 @@
     font-size: 12px;
     color: #ff1212;
 }
+
+
+/* loader css  */
+
+#preloader {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #FFFF;
+    opacity: 0.6;
+    z-index: 99999999;
+}
+
+.spinner {
+    width: 85px;
+    height: 85px;
+    border: 2px solid #f3f3f36b;
+    border-top: 3px solid #ce1719;
+    border-radius: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    animation: wpwsd-spin 1s infinite ease;
+}
+
+.loading-msg {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    top: 47%;
+    color: #ce1719;
+    text-align: center;
+    font-size: 0.8em;
+    transform: translate(-50%, 50%);
+}
+
+@keyframes wpwsd-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

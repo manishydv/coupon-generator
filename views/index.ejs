@@ -16,6 +16,11 @@
 </head>
 
 <body>
+    <!-- page loader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+        <span class="loading-msg">loading...</span>
+    </div>
     <div class="main-wrapper">
         <main class="form-section">
             <form id="generateform">
@@ -155,12 +160,16 @@
             e.preventDefault();
             console.log("from submitted");
             if ($("#generateform").valid()) {
+                $(this).prop('disabled', true);
+                $("#preloader").show();
                 var form = $(this).serialize();
                 $.ajax({
                     url: "/api/v1/generatepdf",
                     data: form,
                     method: "POST",
                     success: function(res) {
+                        $(this).prop('disabled', false);
+                        $("#preloader").hide();
                         if (res.status == 200) {
                             $("#downloadlink").attr('href', '/api/v1/download?filename=' + res.file);
                             $("#generateform").hide();
