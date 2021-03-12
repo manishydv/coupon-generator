@@ -8,114 +8,32 @@
     <title>Document</title>
 </head>
 <style>
+    @font-face {
+        font-family: "MyriadPro";
+        src: url("./MyriadPro/MyriadPro-Regular.otf") format("opentype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+    
     html {
         height: 100%;
     }
     
     body {
-        /* to centre page on screen*/
         margin-left: auto;
         margin-right: auto;
-        font-family: 'Lato' !important;
+        font-family: 'MyriadPro', 'Lato' !important;
         padding: 10px;
         height: 100%;
-        overflow: hidden;
+        color: #454f54;
+        background-image: linear-gradient(to bottom left, #abb5ba, #d5dadd);
     }
     
     *,
     *::after {
         box-sizing: border-box;
         margin: 0;
-    }
-    
-    body {
-        color: #454f54;
-        background-color: #f4f5f6;
-        background-image: linear-gradient(to bottom left, #abb5ba, #d5dadd);
-    }
-    
-    .ticket {
-        display: flex;
-        flex-direction: column;
-        max-width: 55rem;
-        border: 6px solid #9d8c7a;
-        padding: 5px;
-        margin: 0 auto;
-    }
-    
-    .inner-border {
-        border: 3px solid #9d8c7a;
-    }
-    
-    .text-center {
-        text-align: center;
-    }
-    
-    .display-4 {
-        font-size: 3.5rem;
-        font-weight: 300;
-        line-height: 1.2;
-    }
-    
-    .text-muted {
-        color: #6c757d!important;
-    }
-    
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    
-    .col {
-        flex-basis: 0;
-        flex-grow: 1;
-        max-width: 100%;
-    }
-    
-    .col-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-    
-    .col-8 {
-        flex: 0 0 66.666667%;
-        max-width: 66.666667%;
-    }
-    
-    .ticket__header,
-    .ticket__body,
-    .ticket__footer {
-        padding: 10px;
-        background-color: white;
-        border: 1px solid #abb5ba;
-        box-shadow: 0 2px 4px rgba(41, 54, 61, 0.25);
-    }
-    
-    .ticket__left_body {
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        color: black;
-        background: repeating-linear-gradient( 130deg, transparent, transparent 15px, #eae1d8 10px, #eae1d8 34px), linear-gradient(to bottom, #f8f5ee, #f5f2eb);
-    }
-    
-    .mb-3 {
-        margin-bottom: 1rem;
-    }
-    
-    .mb-2 {
-        margin-bottom: 1rem;
-    }
-    
-    .ls-15 {
-        letter-spacing: 20px;
-    }
-    
-    .ls-5 {
-        letter-spacing: 5px;
     }
     
     .hr-text {
@@ -131,220 +49,133 @@
     
     .hr-text:before {
         content: "";
-        background: linear-gradient(to right, transparent, #818078, #fdfef8);
+        background-color: #a39385;
         position: absolute;
-        left: 0;
+        left: 12%;
         top: 50%;
-        width: 100%;
-        height: 2px;
+        width: 78%;
+        height: 3px;
     }
     
     .hr-text:after {
         content: attr(data-content);
         position: relative;
         display: inline-block;
-        color: black;
         padding: 0 0.5em;
         line-height: 1.5em;
-        color: #818078;
+        color: #0c0c0c;
         background-color: #fcfcfa;
     }
     
-    .text-label {
-        color: #9d8e7b;
-        background-color: #eae1d8;
-        padding: 4px;
+    table.upper-ticket {
+        background-image: url('/images/1-bg.jpg');
+        background-size: cover;
+        margin: 20px auto;
+        height: 330px;
+        width: 740px;
     }
     
-    .text-input {
-        font-weight: 600;
-        color: #686666;
-    }
-    
-    .text-upper {
-        text-transform: uppercase;
-    }
-    
-    .ticket__header {
-        font-size: 1.5rem;
-        border-bottom: none;
-        box-shadow: none;
-        padding: 0 5px;
-        text-align: center;
-    }
-    
-    .ticket__wrapper {
-        box-shadow: 0 2px 4px rgba(41, 54, 61, 0.25);
-        border-radius: 0.375em 0.375em 0 0;
-        overflow: hidden;
-    }
-    
-    .ticket__divider {
-        position: relative;
-        height: 1rem;
-        background-color: white;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-    }
-    
-    .ticket__divider::after {
-        content: "";
-        position: absolute;
-        height: 50%;
-        width: 100%;
-        top: 0;
-        border-bottom: 2px dashed #e9ebed;
-    }
-    
-    .ticket__notch {
-        position: absolute;
-        left: -0.5rem;
-        width: 1rem;
-        height: 1rem;
-        overflow: hidden;
-    }
-    
-    .ticket__notch::after {
-        content: "";
-        position: relative;
-        display: block;
-        width: 2rem;
-        height: 2rem;
-        right: 100%;
-        top: -50%;
-        border: 0.5rem solid white;
-        border-radius: 50%;
-        box-shadow: inset 0 2px 4px rgba(41, 54, 61, 0.25);
-    }
-    
-    .ticket__notch--right {
-        left: auto;
-        right: -0.5rem;
-    }
-    
-    .ticket__notch--right::after {
-        right: 0;
-    }
-    
-    .ticket__body {
-        border-bottom: none;
-        border-top: none;
-    }
-    
-    .ticket__body>*+* {
-        margin-top: 1.5rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid #e9ebed;
-    }
-    
-    .ticket__section>*+* {
-        margin-top: 0.25rem;
-    }
-    
-    .ticket__section>h3 {
-        font-size: 1.125rem;
-        margin-bottom: 0.5rem;
+    table.lower-ticket {
+        background-image: url('/images/2-bg.jpg');
+        background-size: cover;
+        margin: 20px auto;
+        height: 330px;
+        width: 740px;
     }
 </style>
 
-<body data-new-gr-c-s-check-loaded="14.997.0" data-gr-ext-installed="">
-
-    <div style="margin: 10px auto;width: 100%;">
-        <article class="ticket">
-            <div class="inner-border">
-                <div class="row">
-                    <div class="col-8">
-                        <header class="ticket__wrapper">
-                            <div class="ticket__header">
-                                <hr class="hr-text" data-content="*">
-                                <h1 class="display-4 ls-15 text-upper">MYRONJA</h1>
-                                <p class="text-muted ls-5 text-upper">ELEGANEWITHAGLOW</p>
-                                <hr class="hr-text">
+<body>
+    <div class="main-wrapper">
+        <!-- upper ticket -->
+        <table class="upper-ticket">
+            <tbody>
+                <tr>
+                    <td style="text-align: center;vertical-align: bottom;">
+                        <table style="height: 100%;width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <hr class="hr-text" data-content="">
+                                        <h1 style="font-size: 3.5rem;font-weight: 300;line-height: 1.2;letter-spacing: 28px;">MYRONJA</h1>
+                                        <h5 style="font-size: 1.5rem;font-weight: 300;line-height: 1.2;letter-spacing: 8px;">ELEGANEWITHAGLOW</h5>
+                                        <hr class="hr-text" data-content="">
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <h5 style="font-size: 2.5rem;font-weight: 300;line-height: 1.2;">Gift 500kr.</h5>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <hr class="hr-text" data-content="Now, go get your glow">
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td style="width: 30%;text-align: center;">
+                        <div class="cont_wrp" style="width: 50%;margin: 0 auto;text-align: center;">
+                            <div style="margin-bottom: 12px;">
+                                <p style="color: #9d8e7b;background-color: #eae1d8;padding: 5px;">Customer:</p>
+                                <p style="font-weight: 600;color: #686666;">40210628</p>
                             </div>
-                        </header>
-                        <div class="ticket__body">
-                            <section class="text-center">
-                                <h5 style="font-size: 2.5rem;font-weight: 300;line-height: 1.2;height: 90px;">Gift 500kr.</h5>
-                            </section>
-                        </div>
-                        <footer class="ticket__footer" style="border-top-width: 0;">
-                            <hr class="hr-text" data-content="Now, go get your glow">
-                        </footer>
-                    </div>
-                    <div class="col">
-                        <div class="ticket__left_body">
-                            <section class="ticket__left_section text-center">
-                                <section class="ticket__left_section text-center">
-                                    <div class="div-wrapper mb-2">
-                                        <p class="text-label">Customer:</p>
-                                        <p class="text-input">40210628</p>
-                                    </div>
-                                    <div class="div-wrapper mb-2">
-                                        <p class="text-label">Valid until:</p>
-                                        <p class="text-input">01/12-2021</p>
-                                    </div>
-                                    <div class="div-wrapper mb-2">
-                                        <p class="text-label">Order number:</p>
-                                        <p class="text-input">803598547</p>
-                                    </div>
-                                </section>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </article>
-        <article class="ticket">
-            <div class="inner-border">
-                <div class="row">
-                    <div class="col-8">
-                        <header class="ticket__wrapper">
-                            <div class="ticket__header">
-                                <hr class="hr-text" data-content="*">
-                                <h1 class="display-4 ls-15 text-upper">MYRONJA</h1>
-                                <p class="text-muted ls-5 text-upper">ELEGANEWITHAGLOW</p>
-                                <hr class="hr-text">
+                            <div style="margin-bottom: 12px;">
+                                <p style="color: #9d8e7b;background-color: #eae1d8;padding: 5px;">Valid until:</p>
+                                <p style="font-weight: 600;color: #686666;">01/12-2021</p>
                             </div>
-                        </header>
-                        <div class="ticket__body">
-                            <section class="text-center">
-                                <h5 style="font-size: 2.5rem;font-weight: 300;line-height: 1.2;height: 90px;">Gift 500kr.</h5>
-                            </section>
+                            <div style="margin-bottom: 12px;">
+                                <p style="color: #9d8e7b;background-color: #eae1d8;padding: 5px;">Order number:</p>
+                                <p style="font-weight: 600;color: #686666;">803598547</p>
+                            </div>
                         </div>
-                        <footer class="ticket__footer" style="border-top-width: 0;">
-                            <hr class="hr-text" data-content="Now, go get your glow">
-                        </footer>
-                    </div>
-                    <div class="col">
-                        <div class="ticket__left_body">
-                            <section class="ticket__left_section text-center">
-                                <section class="ticket__left_section text-center">
-                                    <div class="div-wrapper mb-2">
-                                        <p class="text-label">Customer:</p>
-                                        <p class="text-input">40210628</p>
-                                    </div>
-                                    <div class="div-wrapper mb-2">
-                                        <p class="text-label">Valid until:</p>
-                                        <p class="text-input">01/12-2021</p>
-                                    </div>
-                                    <div class="div-wrapper mb-2">
-                                        <p class="text-label">Order number:</p>
-                                        <p class="text-input">803598547</p>
-                                    </div>
-                                </section>
-                            </section>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- lower ticket -->
+        <table class="lower-ticket">
+            <tbody>
+                <tr>
+                    <td>
+                        <table style="height: 100%;width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        <h5 style="font-size: 1.5rem;font-weight: 500;line-height: 1.2;text-align: left;letter-spacing: 2px;padding-left: 12%;">Here's how</h5>
+                                        <hr class="hr-text">
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th style="vertical-align: text-top;">
+                                        <div class="notes-wrapper" style="vertical-align: text-top;padding-left: 12%;padding-right: 12%;text-align: left;">
+                                            <p style="font-size: 1.3rem;font-weight: 300;line-height: 1.2;margin-bottom: 5px;">1. Go into myronja.com</p>
+                                            <p style="font-size: 1.3rem;font-weight: 300;line-height: 1.2;margin-bottom: 5px;">2. Put the Product you want in the basket and add the gift card code.
+                                            </p>
+                                            <p style="font-size: 1.3rem;font-weight: 300;line-height: 1.2;margin-bottom: 5px;">3. Enjoy the products the day after.</p>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr style="vertical-align: text-top;">
+                                    <th>
+                                        <hr class="hr-text">
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td style="width: 30%;text-align: center;padding: 49px 0;vertical-align: text-top;">
+                        <div class="cont_wrp" style="width: 75%;margin: 0 auto;text-align:center;">
+                            <div style="margin-bottom: 12px;">
+                                <h4 style="padding: 5px;font-size: 1.9em;">Gift card code</h4>
+                                <p style="font-weight: 600;color: #9a9a9a;font-size: 1.3em;">GS07A023</p>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </article>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-
-
-    <!-- <div class="container" style="text-align: center;">
-        <img src="/images/translated.jpg" alt="x">
-    </div> -->
-
 </body>
 
 </html>

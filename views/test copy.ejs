@@ -19,6 +19,7 @@
         font-family: 'Lato' !important;
         padding: 10px;
         height: 100%;
+        overflow: hidden;
     }
     
     *,
@@ -40,18 +41,24 @@
         border: 6px solid #9d8c7a;
         padding: 5px;
         margin: 0 auto;
-        height: 365px;
-        position: relative;
-        width: 100%;
     }
     
     .inner-border {
         border: 3px solid #9d8c7a;
-        position: relative;
     }
     
     .text-center {
         text-align: center;
+    }
+    
+    .display-4 {
+        font-size: 3.5rem;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+    
+    .text-muted {
+        color: #6c757d!important;
     }
     
     .row {
@@ -78,7 +85,7 @@
     .ticket__header,
     .ticket__body,
     .ticket__footer {
-        padding: 1.25rem;
+        padding: 10px;
         background-color: white;
         border: 1px solid #abb5ba;
         box-shadow: 0 2px 4px rgba(41, 54, 61, 0.25);
@@ -103,6 +110,14 @@
         margin-bottom: 1rem;
     }
     
+    .ls-15 {
+        letter-spacing: 20px;
+    }
+    
+    .ls-5 {
+        letter-spacing: 5px;
+    }
+    
     .hr-text {
         line-height: 1em;
         position: relative;
@@ -116,12 +131,12 @@
     
     .hr-text:before {
         content: "";
-        background: linear-gradient(to right, transparent, #818078, transparent);
+        background: linear-gradient(to right, transparent, #818078, #fdfef8);
         position: absolute;
         left: 0;
         top: 50%;
         width: 100%;
-        height: 1px;
+        height: 2px;
     }
     
     .hr-text:after {
@@ -144,6 +159,10 @@
     .text-input {
         font-weight: 600;
         color: #686666;
+    }
+    
+    .text-upper {
+        text-transform: uppercase;
     }
     
     .ticket__header {
@@ -226,71 +245,29 @@
         font-size: 1.125rem;
         margin-bottom: 0.5rem;
     }
-    
-    .CircleBox {
-        width: 70px;
-        height: 120px;
-        display: block;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        overflow: hidden;
-    }
-    
-    .CircleBox span {
-        width: 120px;
-        height: 120px;
-        border: 5px solid #9D8C7A;
-        position: absolute;
-        border-radius: 50%;
-        background-color: #fff;
-    }
-    
-    .CircleBox.CircleLeft {
-        left: -6px;
-    }
-    
-    .CircleBox.CircleLeft span {
-        right: 0;
-    }
-    
-    .CircleBox.CircleRight {
-        right: -6px;
-    }
-    
-    .CircleBox.CircleRight span {
-        left: 0;
-    }
 </style>
 
-<body data-new-gr-c-s-check-loaded="14.997.0" data-gr-ext-installed="">
-
+<body>
     <div style="margin: 10px auto;width: 100%;">
         <article class="ticket">
-            <div class="CircleBox CircleLeft"><span></span></div>
             <div class="inner-border">
-                <div class="CircleBox CircleLeft"><span></span></div>
                 <div class="row">
                     <div class="col-8">
                         <header class="ticket__wrapper">
                             <div class="ticket__header">
                                 <hr class="hr-text" data-content="*">
-                                <h1 class="display-4">Lorem ipsum dolo</h1>
-                                <p class="sub-title">Lorem ipsum dolor sit amet.</p>
+                                <h1 class="display-4 ls-15 text-upper">MYRONJA</h1>
+                                <p class="text-muted ls-5 text-upper">ELEGANEWITHAGLOW</p>
                                 <hr class="hr-text">
                             </div>
                         </header>
                         <div class="ticket__body">
-                            <section class="ticket__section">
-                                <h3>Your Tickets</h3>
-                                <p>Level 1 VIP Club Seats and Bar</p>
-                                <p>Block 406 Row Q Seats 34-35</p>
-                                <p>Your seats are together</p>
+                            <section class="text-center">
+                                <h5 style="font-size: 2.5rem;font-weight: 300;line-height: 1.2;height: 90px;">Gift 500kr.</h5>
                             </section>
                         </div>
-                        <footer class="ticket__footer">
-                            <span>Total Paid</span>
-                            <span>£173.20</span>
+                        <footer class="ticket__footer" style="border-top-width: 0;">
+                            <hr class="hr-text" data-content="Now, go get your glow">
                         </footer>
                     </div>
                     <div class="col">
@@ -314,17 +291,57 @@
                         </div>
                     </div>
                 </div>
-                <div class="CircleBox CircleRight"><span></span></div>
             </div>
-            <div class="CircleBox CircleRight"><span></span></div>
         </article>
 
     </div>
-
-
-    <div class="container" style="text-align: center;">
+    <!-- <div class="container" style="text-align: center;">
         <img src="/images/translated.jpg" alt="x">
-    </div>
+    </div> -->
+    <article class="ticket">
+        <div class="inner-border">
+            <div class="row">
+                <div class="col-8">
+                    <header class="ticket__wrapper">
+                        <div class="ticket__header">
+                            <hr class="hr-text" data-content="*">
+                            <h1 class="display-4 ls-15 text-upper">MYRONJA</h1>
+                            <p class="text-muted ls-5 text-upper">ELEGANEWITHAGLOW</p>
+                            <hr class="hr-text">
+                        </div>
+                    </header>
+                    <div class="ticket__body">
+                        <section class="text-center">
+                            <h5 style="font-size: 2.5rem;font-weight: 300;line-height: 1.2;height: 90px;">Gift 500kr.</h5>
+                        </section>
+                    </div>
+                    <footer class="ticket__footer" style="border-top-width: 0;">
+                        <hr class="hr-text" data-content="Now, go get your glow">
+                    </footer>
+                </div>
+                <div class="col">
+                    <div class="ticket__left_body">
+                        <section class="ticket__left_section text-center">
+                            <section class="ticket__left_section text-center">
+                                <div class="div-wrapper mb-2">
+                                    <p class="text-label">Customer:</p>
+                                    <p class="text-input">40210628</p>
+                                </div>
+                                <div class="div-wrapper mb-2">
+                                    <p class="text-label">Valid until:</p>
+                                    <p class="text-input">01/12-2021</p>
+                                </div>
+                                <div class="div-wrapper mb-2">
+                                    <p class="text-label">Order number:</p>
+                                    <p class="text-input">803598547</p>
+                                </div>
+                            </section>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
 
 </body>
 
