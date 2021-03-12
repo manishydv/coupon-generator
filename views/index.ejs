@@ -60,8 +60,15 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-12 mb-2 input-wrap">
+                        <label for="amount" class="form-label">Amount</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="amount" id="amount" size="60" min="1" placeholder="500" required>
+                        </div>
+                    </div>
                     <div class="col-12">
-                        <button class="w-100 btn btn-lg btn-primary" type="submit">Generate</button>
+                        <button class="w-100 btn btn-lg btn-primary" id="generatebtn" type="button">Generate</button>
+                        <button class="d-none" type="submit">a</button>
                     </div>
                 </div>
 
@@ -115,6 +122,8 @@
             $("#valid_date").val(temp);
         });
 
+
+
         // validation
         $("#generateform").validate({
             errorPlacement: function(error, element) {
@@ -141,6 +150,11 @@
                     minlength: 8,
                     maxlength: 8
                 },
+                amount: {
+                    required: true,
+                    min: 1,
+                    number: true
+                }
             },
         });
 
@@ -156,17 +170,25 @@
             $(this).closest('.input-group').find('input.gen-field').focusout();
         });
 
+        $("#generatebtn").click(function() {
+            if ($("#generateform").valid()) {
+                $("#generateform").trigger('submit');
+            }
+        });
+
         $("#generateform").submit(function(e) {
             e.preventDefault();
             console.log("from submitted");
             if ($("#generateform").valid()) {
                 $(this).prop('disabled', true);
                 $("#preloader").show();
-                var form = $(this).serialize();
+                var formData = new FormData(this);
                 $.ajax({
                     url: "/api/v1/generatepdf",
-                    data: form,
                     method: "POST",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
                     success: function(res) {
                         $(this).prop('disabled', false);
                         $("#preloader").hide();
