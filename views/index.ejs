@@ -182,13 +182,22 @@
             if ($("#generateform").valid()) {
                 $(this).prop('disabled', true);
                 $("#preloader").show();
-                var formData = new FormData(this);
+                // var data = {
+                //     customer_no: $("input[name=customer_no]").val(),
+                //     order_no: $("input[name=order_no]").val(),
+                //     valid_date: $("input[name=valid_date]").val(),
+                //     coupon_code: $("input[name=coupon_code]").val(),
+                //     amount: $("input[name=amount]").val()
+                // };
+                var fd = document.getElementById("generateform");
+                var data = new FormData(fd);
                 $.ajax({
                     url: "/api/v1/generatepdf",
                     method: "POST",
-                    data: formData,
-                    contentType: false,
+                    data: data,
+                    cache: false,
                     processData: false,
+                    contentType: false,
                     success: function(res) {
                         $(this).prop('disabled', false);
                         $("#preloader").hide();

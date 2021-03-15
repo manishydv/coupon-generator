@@ -1,0 +1,20 @@
+{
+    "development": {
+        "PORT": 3000,
+        "HOST": "http://localhost:4200",
+        "MONGODB_URI": "mongodb://localhost:27017/databasename",
+        "JWT_SECRET": "SECRET#123",
+        "JWT_EXP": "24h",
+        "NODEMAILER_USERID": "mailerid@gmail.com",
+        "NODEMAILER_PWD": "password"
+    },
+    "production": {
+        "PORT": 3000,
+        "HOST": "http://localhost:4200",
+        "MONGODB_URI": "mongodb://localhost:27017/databasename",
+        "JWT_SECRET": "SECRET#123",
+        "JWT_EXP": "24h",
+        "NODEMAILER_USERID": "mailerid@gmail.com",
+        "NODEMAILER_PWD": "password"
+    }
+}
