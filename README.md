@@ -1,18 +1,51 @@
 # Coupon Generator
 
 General Information
-[Coupon Generator] The Coupon Generator is node js project where you can build you static coupon any time.
+[Coupon Generator] The Coupon Generator is node js project which build static coupon.
 
-Dependencies
-Before go for set project any new package install on server please run below command. run npm install
+### Version info
+node    : v14.18.1
+npm     : 6.14.15
+eslint  : 8.0.1
+express : 4.16.1
 
-#For Production
+### To install dependencies
+```sh
+$ npm install
+```
 
-start : run forever start ./bin/www stop : run forever stop 0
+### To start server in dev mode
+```sh
+$ npm run dev
+```
+### To stop server in dev mode
+```sh
+$ Ctrl + c
+```
 
-#For Local
+### To start server in prod mode
+Login to hosted server and navigate to project path.
+CMD: cd /var/www/loanquoPortal
+then run hit the shell CMD to run server in background.
+```sh
+$ NODE_ENV=production forever start bin/www
+```
 
-start : run node app.js stop : ctrl+c
+### To stop server in prod mode
+```sh
+$ forever stop 0
+```
+
+### Additional code-format with eslint setup
+
+1) Add extension on IDE (VS-Code) first.
+   Name         :  ESLint -- publisher:"Dirk Baeumer"
+   extension ID :  dbaeumer.vscode-eslint
+
+2) install dev dependencies
+```sh
+$  npm install --only=dev
+```
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
